@@ -1,12 +1,12 @@
 body{
     margin:0;
     font-family: Arial, Helvetica, sans-serif;
-    background:#f4f6f9;
+    background: #bcbcbc;
 }
 
 /* NAVBAR */
 .navbar{
-    background:#2c3e50;
+    background:#19329b;
     color:white;
     padding:15px 40px;
     display:flex;
@@ -16,13 +16,14 @@ body{
 
 .logo{
     font-weight:bold;
-    font-size:18px;
+    font-size:20px;
+    letter-spacing: 1px;
 }
 
 .menu{
     list-style:none;
     display:flex;
-    gap:20px;
+    gap:25px;
     margin:0;
     padding:0;
 }
@@ -35,18 +36,22 @@ body{
 }
 
 .menu li a:hover{
-    color:#1abc9c;
+    color:#f1c232;
 }
 
 /* CONTENEDORES */
 .contenedor{
-    background:white;
-    margin:50px auto;
+    background: #ccb69e;
+    margin:60px auto;
     padding:40px;
     border-radius:15px;
-    box-shadow:0 5px 20px rgba(0,0,0,0.1);
+    box-shadow:0 8px 25px rgba(0,0,0,0.2);
     text-align:center;
     width:350px;
+}
+h1{
+    margin-bottom:20px;
+    color:#19329b;
 }
 
 .oculto{
@@ -61,15 +66,31 @@ input{
     border-radius:8px;
 }
 
+input{
+    width:100%;
+    padding:10px;
+    margin-bottom:15px;
+    border:2px solid #4c60b1;
+    border-radius:8px;
+    font-size:14px;
+    outline:none;
+}
+
+input:focus{
+    border-color:#f1c232;
+}
+
+/* RELOJ */
 .reloj{
     font-size:40px;
     font-weight:bold;
-    margin:20px 0;
-    color:#2c3e50;
+    margin:15px 0;
+    color:#19329b;
 }
 
 .fecha{
-    color:#777;
+    color:#19329b;
+    margin-bottom:15px;
 }
 
 button{
@@ -83,19 +104,18 @@ button{
 }
 
 .btn-asistencia{
-    background:#1abc9c;
+    width:100%;
+    padding:12px;
+    border:none;
+    border-radius:8px;
+    font-size:16px;
+    cursor:pointer;
+    background:#4c60b1;
     color:white;
+    transition:0.3s;
 }
 
 .btn-asistencia:hover{
-    background:#16a085;
-}
-
-.btn-login{
-    background:#3498db;
-    color:white;
-}
-
-.btn-login:hover{
-    background:#2980b9;
+    background:#f1c232;
+    color:#19329b;
 }

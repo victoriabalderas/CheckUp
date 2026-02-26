@@ -2,11 +2,13 @@ function actualizarReloj(){
     const reloj = document.getElementById("reloj");
     const fecha = document.getElementById("fecha");
 
-    if(!reloj || !fecha) return;
-
     const ahora = new Date();
 
-    reloj.textContent = ahora.toLocaleTimeString();
+    const horas = String(ahora.getHours()).padStart(2,'0');
+    const minutos = String(ahora.getMinutes()).padStart(2,'0');
+    const segundos = String(ahora.getSeconds()).padStart(2,'0');
+
+    reloj.textContent = `${horas}:${minutos}:${segundos}`;
     fecha.textContent = ahora.toLocaleDateString();
 }
 
@@ -24,5 +26,20 @@ function mostrarAdmin(){
 }
 
 function registrarAsistencia(){
-    alert("Asistencia registrada correctamente.");
+    const empleadoInput = document.getElementById("empleado");
+    const empleado = empleadoInput.value.trim();
+
+    if(empleado === ""){
+        alert("Por favor ingresa tu número de empleado.");
+        empleadoInput.focus();
+        return;
+    }
+
+    const hora = document.getElementById("reloj").textContent;
+
+    alert("Asistencia registrada correctamente.\nEmpleado: " 
+          + empleado + "\nHora: " + hora);
+
+    // Limpia el campo después de registrar
+    empleadoInput.value = "";
 }

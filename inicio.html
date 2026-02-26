@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>CheckUp</title>
+    <link rel="stylesheet" href="styles.css">
+    
+</head>
+<body>
+
+
+    <nav class="navbar">
+        <div class="logo">CheckUp</div>
+        <ul class="menu">
+            <li><a href="empleado.html" onclick="mostrarEmpleado()">Portal Empleado</a></li>
+            <li><a href="admin.html" onclick="mostrarAdmin()">Administrador</a></li>
+        </ul>
+    </nav>
+
+    <div class="contenedor" id="asistencia">
+        <h1>Registro de Asistencia</h1>
+
+        <div class="reloj" id="reloj">00:00:00</div>
+        <div class="fecha" id="fecha"></div>
+
+        <button class="btn-asistencia" onclick="registrarAsistencia()">
+            Registrar
+        </button>
+    </div>
+
+    
+
+    <script src="script.js"></script>
+</body>
+</html>

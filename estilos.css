@@ -1,50 +1,101 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f6f9;
-    margin: 0;
-    padding: 0;
+body{
+    margin:0;
+    font-family: Arial, Helvetica, sans-serif;
+    background:#f4f6f9;
 }
 
-.container {
-    width: 80%;
-    max-width: 400px;
-    margin: 50px auto;
-    background: white;
-    padding: 25px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+/* NAVBAR */
+.navbar{
+    background:#2c3e50;
+    color:white;
+    padding:15px 40px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
 }
 
-h1 {
-    text-align: center;
-    color: #2c3e50;
+.logo{
+    font-weight:bold;
+    font-size:18px;
 }
 
-form {
-    display: grid;
-    gap: 12px;
+.menu{
+    list-style:none;
+    display:flex;
+    gap:20px;
+    margin:0;
+    padding:0;
 }
 
-input, select, button {
-    padding: 10px;
-    font-size: 14px;
+.menu li a{
+    color:white;
+    text-decoration:none;
+    font-weight:500;
+    transition:0.3s;
 }
 
-button {
-    background-color: #3498db;
-    color: white;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
+.menu li a:hover{
+    color:#1abc9c;
 }
 
-button:hover {
-    background-color: #2980b9;
+/* CONTENEDORES */
+.contenedor{
+    background:white;
+    margin:50px auto;
+    padding:40px;
+    border-radius:15px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.1);
+    text-align:center;
+    width:350px;
 }
 
-#mensaje {
-    margin-top: 15px;
-    text-align: center;
-    font-weight: bold;
-    color: green;
+.oculto{
+    display:none;
+}
+
+input{
+    width:100%;
+    padding:10px;
+    margin-top:10px;
+    border:1px solid #ccc;
+    border-radius:8px;
+}
+
+.reloj{
+    font-size:40px;
+    font-weight:bold;
+    margin:20px 0;
+    color:#2c3e50;
+}
+
+.fecha{
+    color:#777;
+}
+
+button{
+    width:100%;
+    padding:12px;
+    margin-top:15px;
+    border:none;
+    border-radius:8px;
+    font-size:16px;
+    cursor:pointer;
+}
+
+.btn-asistencia{
+    background:#1abc9c;
+    color:white;
+}
+
+.btn-asistencia:hover{
+    background:#16a085;
+}
+
+.btn-login{
+    background:#3498db;
+    color:white;
+}
+
+.btn-login:hover{
+    background:#2980b9;
 }

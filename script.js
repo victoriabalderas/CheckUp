@@ -1,10 +1,28 @@
-const form = document.getElementById("formAsistencia");
-const mensaje = document.getElementById("mensaje");
+function actualizarReloj(){
+    const reloj = document.getElementById("reloj");
+    const fecha = document.getElementById("fecha");
 
-form.addEventListener("submit", function(e) {
-    e.preventDefault();
+    if(!reloj || !fecha) return;
 
-    mensaje.textContent = "✅ Asistencia registrada correctamente";
-    form.reset();
-});
+    const ahora = new Date();
 
+    reloj.textContent = ahora.toLocaleTimeString();
+    fecha.textContent = ahora.toLocaleDateString();
+}
+
+setInterval(actualizarReloj,1000);
+actualizarReloj();
+
+function mostrarEmpleado(){
+    document.getElementById("portalEmpleado").classList.remove("oculto");
+    document.getElementById("portalAdmin").classList.add("oculto");
+}
+
+function mostrarAdmin(){
+    document.getElementById("portalEmpleado").classList.add("oculto");
+    document.getElementById("portalAdmin").classList.remove("oculto");
+}
+
+function registrarAsistencia(){
+    alert("Asistencia registrada correctamente.");
+}

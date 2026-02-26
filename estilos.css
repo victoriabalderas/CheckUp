@@ -1,121 +1,219 @@
-body{
-    margin:0;
-    font-family: Arial, Helvetica, sans-serif;
-    background: #bcbcbc;
+/* ===== RESET ===== */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', 'Segoe UI', sans-serif;
 }
 
-/* NAVBAR */
+/* ===== VARIABLES ===== */
+:root{
+    --dark: #323a45;
+    --primary: #3f6184;
+    --secondary: #778899;
+    --light: #f6f7f9;
+    --accent: #d3a39f;
+    --white: #ffffff;
+}
+
+/* ===== BODY ===== */
+body{
+    background-color: var(--light);
+    min-height: 100vh;
+}
+
+/* ===== NAVBAR ===== */
 .navbar{
-    background:#19329b;
-    color:white;
-    padding:15px 40px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
+    background: var(--dark);
+    color: var(--white);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 50px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
 }
 
 .logo{
-    font-weight:bold;
-    font-size:20px;
+    font-size: 20px;
+    font-weight: 600;
     letter-spacing: 1px;
 }
 
 .menu{
-    list-style:none;
-    display:flex;
-    gap:25px;
-    margin:0;
-    padding:0;
+    list-style: none;
+    display: flex;
+    gap: 35px;
 }
 
 .menu li a{
-    color:white;
-    text-decoration:none;
-    font-weight:500;
-    transition:0.3s;
+    text-decoration: none;
+    color: var(--white);
+    font-weight: 500;
+    position: relative;
+    transition: 0.3s ease;
+}
+
+.menu li a::after{
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    left: 0;
+    bottom: -6px;
+    background: var(--accent);
+    transition: 0.3s ease;
 }
 
 .menu li a:hover{
-    color:#f1c232;
+    color: var(--accent);
 }
 
-/* CONTENEDORES */
+.menu li a:hover::after{
+    width: 100%;
+}
+
+/* ===== CONTENEDOR ===== */
 .contenedor{
-    background: #ccb69e;
-    margin:60px auto;
-    padding:40px;
-    border-radius:15px;
-    box-shadow:0 8px 25px rgba(0,0,0,0.2);
-    text-align:center;
-    width:350px;
+    background: var(--white);
+    width: 420px;
+    margin: 80px auto;
+    padding: 45px;
+    border-radius: 18px;
+    box-shadow: 0 15px 40px rgba(50,58,69,0.08);
+    text-align: center;
+    transition: 0.3s ease;
 }
+
+.contenedor:hover{
+    transform: translateY(-5px);
+}
+
+/* ===== TITULOS ===== */
 h1{
-    margin-bottom:20px;
-    color:#19329b;
+    color: var(--dark);
+    margin-bottom: 30px;
+    font-weight: 600;
 }
 
-.oculto{
-    display:none;
-}
-
+/* ===== INPUTS ===== */
 input{
-    width:100%;
-    padding:10px;
-    margin-top:10px;
-    border:1px solid #ccc;
-    border-radius:8px;
-}
-
-input{
-    width:100%;
-    padding:10px;
-    margin-bottom:15px;
-    border:2px solid #4c60b1;
-    border-radius:8px;
-    font-size:14px;
-    outline:none;
+    width: 100%;
+    padding: 14px;
+    margin-bottom: 18px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    background: #fafafa;
+    font-size: 14px;
+    transition: all 0.3s ease;
 }
 
 input:focus{
-    border-color:#f1c232;
+    outline: none;
+    border: 1px solid var(--primary);
+    background: var(--white);
+    box-shadow: 0 0 0 3px rgba(63,97,132,0.15);
 }
 
-/* RELOJ */
-.reloj{
-    font-size:40px;
-    font-weight:bold;
-    margin:15px 0;
-    color:#19329b;
-}
-
-.fecha{
-    color:#19329b;
-    margin-bottom:15px;
-}
-
-button{
-    width:100%;
-    padding:12px;
-    margin-top:15px;
-    border:none;
-    border-radius:8px;
-    font-size:16px;
-    cursor:pointer;
-}
-
+/* ===== BOTONES ===== */
 .btn-asistencia{
-    width:100%;
-    padding:12px;
-    border:none;
-    border-radius:8px;
-    font-size:16px;
-    cursor:pointer;
-    background:#4c60b1;
-    color:white;
-    transition:0.3s;
+    width: 100%;
+    padding: 14px;
+    background: var(--primary);
+    color: var(--white);
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 
 .btn-asistencia:hover{
-    background:#f1c232;
-    color:#19329b;
+    background: var(--dark);
+    transform: translateY(-2px);
+}
+
+/* ===== RELOJ ===== */
+.reloj{
+    font-size: 38px;
+    font-weight: 600;
+    color: var(--dark);
+    margin: 20px 0;
+}
+
+.fecha{
+    color: var(--secondary);
+    margin-bottom: 20px;
+}
+
+/* ===== PANEL EMPLEADO ===== */
+#panelEmpleado{
+    animation: fadeIn 0.4s ease;
+}
+
+#panelEmpleado p{
+    text-align: left;
+    margin-bottom: 12px;
+    font-size: 14px;
+    color: var(--secondary);
+}
+
+#panelEmpleado strong{
+    color: var(--dark);
+}
+
+/* ===== ANIMACIÓN ===== */
+@keyframes fadeIn{
+    from{
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===== TARJETAS ADMIN ===== */
+.card{
+    background: var(--light);
+    padding: 20px;
+    border-radius: 14px;
+    margin-bottom: 20px;
+    text-align: left;
+    box-shadow: 0 8px 20px rgba(50,58,69,0.05);
+    transition: 0.3s ease;
+}
+
+.card:hover{
+    transform: translateY(-4px);
+}
+
+.card h3{
+    color: var(--secondary);
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.card p{
+    font-size: 28px;
+    font-weight: 600;
+    color: var(--dark);
+}
+
+/* ===== BOTÓN CERRAR ===== */
+.btn-danger{
+    width: 100%;
+    padding: 14px;
+    background: var(--accent);
+    color: var(--white);
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.btn-danger:hover{
+    background: #c48f8b;
 }

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Portal Empleado - CheckUp</title>
+    <link rel="stylesheet" href="../estilos.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">CheckUp</div>
+        <ul class="menu">
+        <li><a href="../inicio.html">Asistencia</a></li>
+        <li><a href="../ADMIN/admin.html">Administrador</a></li>
+    </ul>
+    </nav>
+
+    <div class="contenedor">
+
+        
+        <div id="loginEmpleado">
+            <h1>Portal Empleado</h1>
+
+            <input type="text" id="usuario" placeholder="Número de empleado">
+            <input type="password" id="password" placeholder="Contraseña">
+
+            <button class="btn-asistencia" onclick="iniciarSesion()">
+                Iniciar Sesión
+            </button>
+        </div>
+
+        <!-- DATOS DEL EMPLEADO (OCULTOS) -->
+        <div id="panelEmpleado" style="display:none;">
+            <h1>Bienvenido</h1>
+
+            <p><strong>Nombre:</strong> <span id="nombreEmpleado"></span></p>
+            <p><strong>Puesto:</strong> <span id="puestoEmpleado"></span></p>
+            <p><strong>Área:</strong> <span id="areaEmpleado"></span></p>
+            <button class="btn-asistencia" onclick="cerrarSesion()">
+                Cerrar Sesión
+            </button>
+
+        </div>
+
+    </div>
+
+    <script src="empleado.js"></script>
+</body>
+</html>

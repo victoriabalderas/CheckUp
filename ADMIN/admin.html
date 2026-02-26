@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Administrador - CheckUp</title>
+    <link rel="stylesheet" href="../estilos.css">
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="logo">CheckUp Admin</div>
+    <ul class="menu">
+        <li><a href="../inicio.html">Asistencia</a></li>
+        <li><a href="../EMPLEADO/empleado.html">Portal Empleado</a></li>
+    </ul>
+</nav>
+
+<div class="contenedor">
+
+    <!-- LOGIN ADMIN -->
+    <div id="loginAdmin">
+        <h1>Panel Administrador</h1>
+        <input type="text" id="adminUser" placeholder="Usuario">
+        <input type="password" id="adminPass" placeholder="Contraseña">
+
+        <button class="btn-asistencia" onclick="iniciarSesionAdmin()">
+            Iniciar Sesión
+        </button>
+    </div>
+
+    <!-- PANEL ADMIN -->
+    <div id="panelAdmin" style="display:none;">
+        <h1>Dashboard</h1>
+
+        <div class="card">
+            <h3>Empleados registrados</h3>
+            <p id="totalEmpleados">12</p>
+        </div>
+
+        <div class="card">
+            <h3>Asistencias hoy</h3>
+            <p id="asistenciasHoy">8</p>
+        </div>
+
+        <button class="btn-danger" onclick="cerrarSesionAdmin()">
+            Cerrar Sesión
+        </button>
+    </div>
+
+</div>
+
+<script src="admin.js"></script>
+</body>
+</html>

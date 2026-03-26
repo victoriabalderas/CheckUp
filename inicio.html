@@ -4,31 +4,55 @@
     <meta charset="UTF-8">
     <title>CheckUp</title>
     <link rel="stylesheet" href="estilos.css">
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
+
 <body>
 
-
-    <nav class="navbar">
-        <div class="logo">CheckUp</div>
-        <ul class="menu">
-            <li><a href="EMPLEADO/empleado.html" onclick="mostrarEmpleado()">Portal Empleado</a></li>
-            <li><a href="ADMIN/admin.html" onclick="mostrarAdmin()">Administrador</a></li>
+    <div class="sidebar">
+        <h2 class="logo">CheckUp</h2>
+        <ul>
+            <li><a href="inicio.html"><i class="fas fa-home"></i> Inicio</a></li>
+            <li><a href="EMPLEADO/empleado.html"><i class="fas fa-user"></i> Mi Perfil</a></li>
+            <li><a href="../ADMIN/admin.html"><i class="fas fa-cog"></i> Administrador</a></li>
         </ul>
-    </nav>
+    </div>
 
-    <div class="contenedor" id="asistencia">
-        <h1>Registro de Asistencia</h1>
-        <input type="text" id="empleado" placeholder="Número de empleado">
+    <!-- CONTENIDO -->
+    <div class="main">
+
+        <h1>Bienvenido</h1>
+        <p id="saludo">Ingrese su número de empleado: </p>
+
+        <input type="text" id="empleado" placeholder="">
 
         <div class="reloj" id="reloj">00:00:00</div>
         <div class="fecha" id="fecha"></div>
 
-        <button class="btn-asistencia" onclick="registrarAsistencia()">
-            Registrar
-        </button>
-    </div>
+        <!-- BOTONES -->
+        <div class="botones">
+            <button class="btn entrada" onclick="registrarAsistencia('entrada')">
+                <i class="fas fa-sign-in-alt"></i>
+                Entrada
+            </button>
 
+            <button class="btn comida" onclick="registrarAsistencia('comida')">
+                <i class="fas fa-utensils"></i>
+                Comida
+            </button>
+
+            <button class="btn fincomida" onclick="registrarAsistencia('fincomida')">
+                <i class="fas fa-utensils"></i>
+                Fin Comida
+            </button>
+
+            <button class="btn salida" onclick="registrarAsistencia('salida')">
+                <i class="fas fa-sign-out-alt"></i>
+                Salida
+            </button>
+        </div>
+
+    </div>
 
     <script src="script.js"></script>
 </body>

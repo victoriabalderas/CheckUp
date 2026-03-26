@@ -25,21 +25,33 @@ function mostrarAdmin(){
     document.getElementById("portalAdmin").classList.remove("oculto");
 }
 
-function registrarAsistencia(){
-    const empleadoInput = document.getElementById("empleado");
-    const empleado = empleadoInput.value.trim();
 
-    if(empleado === ""){
-        alert("Por favor ingresa tu número de empleado.");
-        empleadoInput.focus();
+function registrarAsistencia(tipo) {
+
+    let empleado = document.getElementById("empleado").value;
+
+    if (!empleado) {
+        alert("Ingresa tu número de empleado");
         return;
     }
 
-    const hora = document.getElementById("reloj").textContent;
-
-    alert("Asistencia registrada correctamente.\nEmpleado: " 
-          + empleado + "\nHora: " + hora);
-
-    // Limpia el campo después de registrar
-    empleadoInput.value = "";
+    fetch("http://127.0.0.1:5000/registrar", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            empleado: empleado,
+            tipo: tipo
+        })
+    })
+    .then(res => res.json())
+    .then(data => {
+        if (data.status === "ok") {
+            alert("Registro: " + tipo + " | Empleado: " + empleado);
+        } else {
+            alert("Error al registrar");
+        }
+    })
+    .catch(err => console.error(err));
 }

@@ -6,214 +6,270 @@
     font-family: 'Inter', 'Segoe UI', sans-serif;
 }
 
-/* ===== VARIABLES ===== */
-:root{
-    --dark: #323a45;
-    --primary: #3f6184;
-    --secondary: #778899;
-    --light: #f6f7f9;
-    --accent: #d3a39f;
-    --white: #ffffff;
-}
-
-/* ===== BODY ===== */
-body{
-    background-color: var(--light);
-    min-height: 100vh;
-}
-
-/* ===== NAVBAR ===== */
-.navbar{
-    background: var(--dark);
-    color: var(--white);
+/* ===== FONDO PRO ===== */
+body {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 18px 50px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    height: 100vh;
+
+    background: linear-gradient(135deg, #3a0ca3, #7209b7, #4361ee);
+    color: white;
 }
 
-.logo{
-    font-size: 20px;
-    font-weight: 600;
-    letter-spacing: 1px;
-}
-
-.menu{
-    list-style: none;
-    display: flex;
-    gap: 35px;
-}
-
-.menu li a{
-    text-decoration: none;
-    color: var(--white);
-    font-weight: 500;
-    position: relative;
-    transition: 0.3s ease;
-}
-
-.menu li a::after{
-    content: "";
-    position: absolute;
-    width: 0%;
-    height: 2px;
-    left: 0;
-    bottom: -6px;
-    background: var(--accent);
-    transition: 0.3s ease;
-}
-
-.menu li a:hover{
-    color: var(--accent);
-}
-
-.menu li a:hover::after{
-    width: 100%;
-}
-
-/* ===== CONTENEDOR ===== */
-.contenedor{
-    background: var(--white);
-    width: 420px;
-    margin: 80px auto;
-    padding: 45px;
-    border-radius: 18px;
-    box-shadow: 0 15px 40px rgba(50,58,69,0.08);
-    text-align: center;
-    transition: 0.3s ease;
-}
-
-.contenedor:hover{
-    transform: translateY(-5px);
-}
-
-/* ===== TITULOS ===== */
-h1{
-    color: var(--dark);
-    margin-bottom: 30px;
-    font-weight: 600;
-}
-
-/* ===== INPUTS ===== */
-input{
-    width: 100%;
-    padding: 14px;
-    margin-bottom: 18px;
-    border-radius: 10px;
-    border: 1px solid #ddd;
-    background: #fafafa;
-    font-size: 14px;
-    transition: all 0.3s ease;
-}
-
-input:focus{
-    outline: none;
-    border: 1px solid var(--primary);
-    background: var(--white);
-    box-shadow: 0 0 0 3px rgba(63,97,132,0.15);
-}
-
-/* ===== BOTONES ===== */
-.btn-asistencia{
-    width: 100%;
-    padding: 14px;
-    background: var(--primary);
-    color: var(--white);
-    border: none;
-    border-radius: 10px;
-    font-size: 15px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.btn-asistencia:hover{
-    background: var(--dark);
-    transform: translateY(-2px);
-}
-
-/* ===== RELOJ ===== */
-.reloj{
-    font-size: 38px;
-    font-weight: 600;
-    color: var(--dark);
-    margin: 20px 0;
-}
-
-.fecha{
-    color: var(--secondary);
-    margin-bottom: 20px;
-}
-
-/* ===== PANEL EMPLEADO ===== */
-#panelEmpleado{
-    animation: fadeIn 0.4s ease;
-}
-
-#panelEmpleado p{
-    text-align: left;
-    margin-bottom: 12px;
-    font-size: 14px;
-    color: var(--secondary);
-}
-
-#panelEmpleado strong{
-    color: var(--dark);
-}
-
-/* ===== ANIMACIÓN ===== */
-@keyframes fadeIn{
-    from{
-        opacity: 0;
-        transform: translateY(10px);
-    }
-    to{
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* ===== TARJETAS ADMIN ===== */
-.card{
-    background: var(--light);
+/* ===== SIDEBAR GLASS ===== */
+.sidebar {
+    width: 220px;
+    height: 100vh;
     padding: 20px;
-    border-radius: 14px;
-    margin-bottom: 20px;
-    text-align: left;
-    box-shadow: 0 8px 20px rgba(50,58,69,0.05);
-    transition: 0.3s ease;
+
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+
+    border-right: 1px solid rgba(255,255,255,0.1);
 }
 
-.card:hover{
-    transform: translateY(-4px);
+.sidebar .logo {
+    margin-bottom: 40px;
 }
 
-.card h3{
-    color: var(--secondary);
+.sidebar ul {
+    list-style: none;
+}
+
+.sidebar ul li {
+    margin: 18px 0;
+}
+
+/* LINKS SIDEBAR */
+.sidebar a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    padding: 8px;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.sidebar a:hover {
+    background: rgba(255,255,255,0.1);
+    transform: translateX(5px);
+}
+
+/* ICONOS */
+.sidebar i {
     font-size: 14px;
-    margin-bottom: 8px;
+    width: 20px;
+    text-align: center;
 }
 
-.card p{
-    font-size: 28px;
-    font-weight: 600;
-    color: var(--dark);
+/* ADMIN SECTION */
+.admin-section {
+    background: rgba(255,255,255,0.08);
+    padding: 12px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: bold;
+    border-left: 4px solid #4da6c8;
+    border-radius: 8px;
 }
 
-/* ===== BOTÓN CERRAR ===== */
-.btn-danger{
+/* ===== CONTENIDO GLASS ===== */
+.main {
+    flex: 1;
+    margin: 30px;
+    border-radius: 20px;
+    padding: 40px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    border: 1px solid rgba(255,255,255,0.15);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+
+    overflow: hidden;
+    position: relative;
+}
+
+/* TITULOS */
+h1 {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+#saludo {
+    color: rgba(255,255,255,0.7);
+    font-size: 18px;
+}
+
+/* INPUT GLASS */
+input {
+    padding: 12px;
+    width: 260px;
+    margin: 20px 0;
+
+    border-radius: 10px;
+    border: 1px solid rgba(255,255,255,0.2);
+    outline: none;
+
+    background: rgba(255,255,255,0.1);
+    color: white;
+    text-align: center;
+}
+
+/* RELOJ */
+.reloj {
+    font-size: 55px;
+    font-weight: bold;
+}
+
+.fecha {
+    margin-bottom: 25px;
+    color: rgba(255,255,255,0.7);
+}
+
+/* BOTONES */
+.botones {
+    display: grid;
+    grid-template-columns: repeat(2, 100px);
+    gap: 25px;
+    justify-content: center;
+}
+
+/* BOTONES GLASS */
+.btn {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    color: white;
+    font-size: 15px;
+
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(12px);
+
+    border: 1px solid rgba(255,255,255,0.2);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+
+    transition: 0.3s;
+}
+
+.btn i {
+    font-size: 20px;
+    margin-bottom: 6px;
+}
+
+/* HOVER PRO */
+.btn:hover {
+    transform: scale(1.1);
+    background: rgba(255,255,255,0.2);
+}
+
+/* COLORES SUAVES (GRADIENTE LIGHT) */
+.entrada { background: linear-gradient(135deg, #4ade80, #22c55e); }
+.comida { background: linear-gradient(135deg, #38bdf8, #0ea5e9); }
+.fincomida { background: linear-gradient(135deg, #fbbf24, #f59e0b); }
+.salida { background: linear-gradient(135deg, #f87171, #ef4444); }
+
+/* ===== CONTENEDOR LOGIN GLASS ===== */
+.contenedor {
+    flex: 1;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 40px;
+}
+
+/* TARJETA GLASS */
+#loginEmpleado,
+#panelEmpleado {
+    width: 350px;
+    padding: 30px;
+    border-radius: 20px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    border: 1px solid rgba(255,255,255,0.15);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+}
+
+/* TITULO */
+#loginEmpleado h1,
+#panelEmpleado h1 {
+    margin-bottom: 10px;
+}
+
+/* INPUTS GLASS */
+#loginEmpleado input {
     width: 100%;
-    padding: 14px;
-    background: var(--accent);
-    color: var(--white);
+    padding: 12px;
+
+    border-radius: 10px;
+    border: 1px solid rgba(255,255,255,0.2);
+    outline: none;
+
+    background: rgba(255,255,255,0.1);
+    color: white;
+}
+
+#loginEmpleado input::placeholder {
+    color: white;
+    opacity: 1;
+}
+
+/* BOTON */
+.btn-asistencia {
+    width: 100%;
+    padding: 12px;
+
     border: none;
     border-radius: 10px;
-    font-size: 15px;
     cursor: pointer;
-    transition: 0.3s ease;
+
+    background: linear-gradient(135deg, #4ade80, #22c55e);
+    color: white;
+    font-weight: bold;
+
+    transition: 0.3s;
 }
 
-.btn-danger:hover{
-    background: #c48f8b;
+/* HOVER BOTON */
+.btn-asistencia:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+}
+
+/* TEXTO PANEL */
+#panelEmpleado p {
+    width: 100%;
+    text-align: left;
+    color: rgba(255,255,255,0.8);
 }

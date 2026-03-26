@@ -1,7 +1,3 @@
-// 🔐 LOGIN
-
-console.log("JS cargado 🔥");
-
 function iniciarSesion() {
 
     let usuario = document.getElementById("usuario").value;
@@ -43,70 +39,12 @@ function iniciarSesion() {
     .catch(err => console.error("Error:", err));
 }
 
-
-// 📊 CARGAR ASISTENCIA DESDE MYSQL
-function cargarAsistencia() {
-
-    let empleado = localStorage.getItem("empleado");
-
-    fetch("http://127.0.0.1:5000/asistencia/" + empleado)
-    .then(res => res.json())
-    .then(data => {
-
-        console.log("DATOS:", data); // 🔥 DEBUG
-
-        let tabla = document.querySelector("#tablaAsistencia tbody");
-        tabla.innerHTML = "";
-
-        if (!data || data.length === 0) {
-            tabla.innerHTML = "<tr><td colspan='3'>Sin registros</td></tr>";
-            return;
-        }
-
-        data.forEach(r => {
-
-            let fila = document.createElement("tr");
-
-            let fecha = document.createElement("td");
-            let tipo = document.createElement("td");
-            let hora = document.createElement("td");
-
-            fecha.textContent = r.fecha;
-            tipo.textContent = r.tipo;
-            hora.textContent = r.hora;
-
-            fila.appendChild(fecha);
-            fila.appendChild(tipo);
-            fila.appendChild(hora);
-
-            tabla.appendChild(fila);
-        });
-
-    })
-    .catch(err => console.error("Error:", err));
-}
-
-
 // 🔓 CERRAR SESIÓN
 function cerrarSesion() {
     localStorage.removeItem("empleado");
     location.reload();
 }
 
-
-// 🔄 MANTENER SESIÓN (AUTO LOGIN)
-window.onload = function () {
-
-    let empleado = localStorage.getItem("empleado");
-
-    if (empleado) {
-        // Si ya hay sesión, ir directo al panel
-        document.getElementById("loginEmpleado").style.display = "none";
-        document.getElementById("panelEmpleado").style.display = "block";
-
-        cargarAsistencia();
-    }
-};
 
 function mostrarPanelEmpleado(u) {
 
@@ -122,4 +60,49 @@ function mostrarPanelEmpleado(u) {
 
     // 📊 cargar asistencia
     cargarAsistencia();
+}
+
+function mostrarAsistencia(asistencias) {
+    // Obtén el tbody de la tabla
+    const tbody = document.querySelector("#tablaAsistencia tbody");
+    tbody.innerHTML = ""; // limpiar tabla antes de llenar
+
+    if (!asistencias || asistencias.length === 0) {
+        tbody.innerHTML = "<tr><td colspan='3'>Sin registros</td></tr>";
+        return;
+    }
+
+    // Recorrer cada registro y crear fila
+    asistencias.forEach(r => {
+        const fila = document.createElement("tr");
+
+        const tdFecha = document.createElement("td");
+        const tdTipo = document.createElement("td");
+        const tdHora = document.createElement("td");
+
+        tdFecha.textContent = r.fecha;
+        tdTipo.textContent = r.tipo;
+        tdHora.textContent = r.hora;
+
+        fila.appendChild(tdFecha);
+        fila.appendChild(tdTipo);
+        fila.appendChild(tdHora);
+
+        tbody.appendChild(fila);
+    });
+}
+
+function cargarAsistencia() {
+    let empleado = localStorage.getItem("empleado");
+
+    fetch("http://127.0.0.1:5000/asistencia/" + empleado)
+        .then(res => {
+            if (!res.ok) throw new Error("Error en la petición: " + res.status);
+            return res.json();
+        })
+        .then(data => {
+            console.log("Asistencias:", data);
+            mostrarAsistencia(data); // Llenamos la tabla
+        })
+        .catch(err => console.error("Error al cargar asistencia:", err));
 }

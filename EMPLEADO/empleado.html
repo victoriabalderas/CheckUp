@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Portal Empleado - CheckUp</title>
-    <link rel="stylesheet" href="../estilos.css">
+    <link rel="stylesheet" href="empleado.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
@@ -20,12 +20,14 @@
     <div class="contenedor">
 
         <div id="loginEmpleado">
-            <h1>Portal Empleado</h1>
-
+            <h1>Iniciar Sesión</h1>
+            <p id="txt-inicioSesion">Ingrese su número de empleado:</p>
             <input type="text" id="usuario" placeholder="Número de empleado">
+
+            <p id="txt-inicioSesion">Ingrese su contraseña:</p>
             <input type="password" id="password" placeholder="Contraseña">
 
-            <button onclick="iniciarSesion()">Iniciar Sesión</button>
+            <button class="btn-inicioSesion" onclick="iniciarSesion()">Ingresar</button>
 
         </div>
 
@@ -71,13 +73,15 @@
             </table>
 
             <button onclick="cerrarSesion()">Cerrar Sesión</button>
+
+            <canvas id="grafica"></canvas>
         </div>
 
     </div>
 
     <script src="empleado.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <canvas id="grafica"></canvas>
+    
 
 </body>
 </html>

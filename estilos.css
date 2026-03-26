@@ -1,275 +1,145 @@
-/* ===== RESET ===== */
-*{
+/* --- DISEÑO PREMIUM COMPACTO --- */
+
+* {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    font-family: 'Inter', 'Segoe UI', sans-serif;
 }
 
-/* ===== FONDO PRO ===== */
 body {
-    display: flex;
+    background-color: #2e026d; /* Morado sólido */
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: #ffffff;
     height: 100vh;
-
-    background: linear-gradient(135deg, #3a0ca3, #7209b7, #4361ee);
-    color: white;
+    display: flex;
+    overflow: hidden; /* Evita scroll accidental */
 }
 
-/* ===== SIDEBAR GLASS ===== */
+/* --- SIDEBAR REFINADA --- */
 .sidebar {
-    width: 220px;
+    width: 240px;
+    background-color: #1a014a;
     height: 100vh;
-    padding: 20px;
-
-    background: rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-
-    border-right: 1px solid rgba(255,255,255,0.1);
+    position: fixed;
+    padding: 2rem 1rem;
 }
 
 .sidebar .logo {
-    margin-bottom: 40px;
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin-bottom: 2rem;
+    text-align: center;
 }
 
-.sidebar ul {
-    list-style: none;
-}
-
-.sidebar ul li {
-    margin: 18px 0;
-}
-
-/* LINKS SIDEBAR */
-.sidebar a {
-    color: white;
+.sidebar ul { list-style: none; }
+.sidebar ul li a {
+    color: rgba(255, 255, 255, 0.6);
     text-decoration: none;
-    font-weight: 500;
-
     display: flex;
     align-items: center;
-    gap: 12px;
-
-    padding: 8px;
-    border-radius: 8px;
+    gap: 10px;
+    padding: 10px 15px;
+    border-radius: 10px;
+    margin-bottom: 5px;
     transition: 0.3s;
 }
 
-.sidebar a:hover {
-    background: rgba(255,255,255,0.1);
-    transform: translateX(5px);
+.sidebar ul li a:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
 }
 
-/* ICONOS */
-.sidebar i {
-    font-size: 14px;
-    width: 20px;
-    text-align: center;
-}
-
-/* ADMIN SECTION */
-.admin-section {
-    background: rgba(255,255,255,0.08);
-    padding: 12px;
-    margin-bottom: 20px;
-    text-align: center;
-    font-weight: bold;
-    border-left: 4px solid #4da6c8;
-    border-radius: 8px;
-}
-
-/* ===== CONTENIDO GLASS ===== */
+/* --- TARJETA CENTRAL COMPACTA (.main) --- */
 .main {
-    flex: 1;
-    margin: 30px;
-    border-radius: 20px;
-    padding: 40px;
-
+    margin: auto auto auto 350px; /* Centrado dinámico */
+    width: 100%;
+    max-width: 600px; /* Cuadrado más estrecho */
+    background-color: #40108a;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 24px;
+    padding: 2rem;
     display: flex;
-    flex-direction: column;
     justify-content: center;
+    flex-direction: column;
     align-items: center;
-
-    text-align: center;
-
-    background: rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-
-    border: 1px solid rgba(255,255,255,0.15);
-    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
-
-    overflow: hidden;
-    position: relative;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
 }
 
-/* TITULOS */
-h1 {
-    font-size: 40px;
-    margin-bottom: 10px;
+.main h1 {
+    font-size: 2.5rem; /* Grande pero controlado */
+    font-weight: 800;
+    margin-bottom: 5px;
 }
 
 #saludo {
-    color: rgba(255,255,255,0.7);
-    font-size: 18px;
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.5);
+    margin-bottom: 1rem;
 }
 
-/* INPUT GLASS */
-input {
-    padding: 12px;
-    width: 260px;
-    margin: 20px 0;
-
-    border-radius: 10px;
-    border: 1px solid rgba(255,255,255,0.2);
-    outline: none;
-
-    background: rgba(255,255,255,0.1);
+/* Input más fino */
+#empleado {
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 10px;
+    width: 220px;
     color: white;
+    font-size: 1.2rem;
     text-align: center;
+    margin-bottom: 1.5rem;
 }
 
-/* RELOJ */
+/* EL RELOJ: Impacto total sin ocupar altura excesiva */
 .reloj {
-    font-size: 55px;
-    font-weight: bold;
+    font-size: 6rem; 
+    font-weight: 900;
+    line-height: 0.8;
+    letter-spacing: -4px;
+    margin-bottom: 5px;
 }
 
 .fecha {
-    margin-bottom: 25px;
-    color: rgba(255,255,255,0.7);
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.4);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 2rem;
 }
 
-/* BOTONES */
+/* --- BOTONES: Grilla optimizada --- */
 .botones {
     display: grid;
-    grid-template-columns: repeat(2, 100px);
-    gap: 25px;
-    justify-content: center;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
 }
 
-/* BOTONES GLASS */
 .btn {
-    width: 100px;
+    width: 100px; /* Más pequeños para ahorrar espacio vertical */
     height: 100px;
     border-radius: 50%;
     border: none;
-    cursor: pointer;
-
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-
+    justify-content: center;
+    gap: 5px;
     color: white;
-    font-size: 15px;
-
-    background: rgba(255,255,255,0.1);
-    backdrop-filter: blur(12px);
-
-    border: 1px solid rgba(255,255,255,0.2);
-    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
-
-    transition: 0.3s;
+    font-weight: 700;
+    font-size: 0.75rem;
+    cursor: pointer;
+    transition: transform 0.2s;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
 }
 
-.btn i {
-    font-size: 20px;
-    margin-bottom: 6px;
-}
+.btn i { font-size: 1.4rem; }
 
-/* HOVER PRO */
+/* Colores Sólidos */
+.entrada { background-color: #27ae60; }
+.comida { background-color: #2980b9; }
+.fincomida { background-color: #f39c12; }
+.salida { background-color: #c0392b; }
+
 .btn:hover {
     transform: scale(1.1);
-    background: rgba(255,255,255,0.2);
-}
-
-/* COLORES SUAVES (GRADIENTE LIGHT) */
-.entrada { background: linear-gradient(135deg, #4ade80, #22c55e); }
-.comida { background: linear-gradient(135deg, #38bdf8, #0ea5e9); }
-.fincomida { background: linear-gradient(135deg, #fbbf24, #f59e0b); }
-.salida { background: linear-gradient(135deg, #f87171, #ef4444); }
-
-/* ===== CONTENEDOR LOGIN GLASS ===== */
-.contenedor {
-    flex: 1;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    padding: 40px;
-}
-
-/* TARJETA GLASS */
-#loginEmpleado,
-#panelEmpleado {
-    width: 350px;
-    padding: 30px;
-    border-radius: 20px;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
-
-    background: rgba(255,255,255,0.08);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-
-    border: 1px solid rgba(255,255,255,0.15);
-    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
-}
-
-/* TITULO */
-#loginEmpleado h1,
-#panelEmpleado h1 {
-    margin-bottom: 10px;
-}
-
-/* INPUTS GLASS */
-#loginEmpleado input {
-    width: 100%;
-    padding: 12px;
-
-    border-radius: 10px;
-    border: 1px solid rgba(255,255,255,0.2);
-    outline: none;
-
-    background: rgba(255,255,255,0.1);
-    color: white;
-}
-
-#loginEmpleado input::placeholder {
-    color: white;
-    opacity: 1;
-}
-
-/* BOTON */
-.btn-asistencia {
-    width: 100%;
-    padding: 12px;
-
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-
-    background: linear-gradient(135deg, #4ade80, #22c55e);
-    color: white;
-    font-weight: bold;
-
-    transition: 0.3s;
-}
-
-/* HOVER BOTON */
-.btn-asistencia:hover {
-    transform: scale(1.05);
-    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
-}
-
-/* TEXTO PANEL */
-#panelEmpleado p {
-    width: 100%;
-    text-align: left;
-    color: rgba(255,255,255,0.8);
 }

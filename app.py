@@ -4,6 +4,7 @@ import mysql.connector
 
 app = Flask(__name__)
 CORS(app)
+CORS(app, resources={r"/*": {"origins": "*"}})
 
 # 🔗 CONEXIÓN A MYSQL
 try:
@@ -20,19 +21,12 @@ except Exception as e:
 
 cursor = db.cursor(dictionary=True)
 
-# 🧪 RUTA DE PRUEBA
-@app.route('/')
-def inicio():
-    return "Servidor funcionando 🔥"
-
 # 🔐 LOGIN
 @app.route('/login', methods=['POST'])
 def login():
     data = request.json
-
     sql = "SELECT * FROM empleados WHERE numero=%s AND password=%s"
     cursor.execute(sql, (data['usuario'], data['password']))
-
     user = cursor.fetchone()
 
     if user:
@@ -44,7 +38,6 @@ def login():
 @app.route('/registrar', methods=['POST'])
 def registrar():
     data = request.json
-
     empleado = data['empleado']
     tipo = data['tipo']
 
@@ -52,27 +45,27 @@ def registrar():
         INSERT INTO asistencia (numero_empleado, tipo, fecha, hora)
         VALUES (%s, %s, CURDATE(), CURTIME())
     """
-
     cursor.execute(sql, (empleado, tipo))
     db.commit()
-
     return jsonify({"status": "ok"})
 
-# 🚀 INICIAR SERVIDOR
-if __name__ == '__main__':
+# 📊 OBTENER ASISTENCIA (para llenar la tabla)
+@app.route('/asistencia/<empleado_id>', methods=['GET'])
+def obtener_asistencia(empleado_id):
+    try:
+        cursor = db.cursor(dictionary=True)  # 🔹 nuevo cursor
+        sql = "SELECT fecha, tipo, hora FROM asistencia WHERE numero_empleado=%s ORDER BY fecha, hora"
+        cursor.execute(sql, (empleado_id,))
+        registros = cursor.fetchall()
+        cursor.close()
+        for r in registros:
+            r['fecha'] = r['fecha'].strftime("%Y-%m-%d")  # fecha a string
+            r['hora'] = str(r['hora'])  # hora a string HH:MM:SS
+
+        return jsonify(registros)
+    except Exception as e:
+        print("Error en /asistencia:", e)
+        return jsonify({"error": str(e)}), 500
+
+if __name__ == "__main__":
     app.run(debug=True)
-
-@app.route('/asistencia/<empleado>', methods=['GET'])
-def obtener_asistencia(empleado):
-
-    sql = """
-        SELECT fecha, tipo, hora
-        FROM asistencia
-        WHERE numero_empleado = %s
-        ORDER BY fecha DESC, hora DESC
-    """
-
-    cursor.execute(sql, (empleado,))
-    datos = cursor.fetchall()
-
-    return jsonify(datos)

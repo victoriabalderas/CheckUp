@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Administrador - CheckUp</title>
-    <link rel="stylesheet" href="../estilos.css">
+    <link rel="stylesheet" href="admin.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
 </head>
@@ -20,38 +20,63 @@
 
     <div class="contenedor">
 
-        <!-- LOGIN ADMIN -->
         <div id="loginAdmin">
             <h1>Panel Administrador</h1>
-            <input type="text" id="adminUser" placeholder="Usuario">
-            <input type="password" id="adminPass" placeholder="Contraseña">
+            <input type="text" id="usuarioAdmin" placeholder="Usuario">
+            <input type="password" id="passwordAdmin" placeholder="Contraseña">
 
             <button class="btn-asistencia" onclick="iniciarSesionAdmin()">
-                Iniciar Sesión
+                Ingresar
             </button>
         </div>
 
-        <!-- PANEL ADMIN -->
         <div id="panelAdmin" style="display:none;">
-            <h1>Dashboard</h1>
+    <h1>Dashboard</h1>
 
-            <div class="card">
-                <h3>Empleados registrados</h3>
-                <p id="totalEmpleados">12</p>
+    <div class="dashboard-flex">
+        
+        <div class="izquierda-tabla">
+
+            <h3>Registros de Asistencia</h3>
+            <table id="tablaAsistenciaAdmin">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Número Empleado</th>
+                        <th>Tipo</th>
+                        <th>Fecha</th>
+                        <th>Hora</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td colspan="5">Cargando...</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="derecha-stats">
+            <div class="dashboard-resumen">
+                <div class="card-grafica">
+                    <h3>Estado de Asistencia Hoy</h3>
+                    <canvas id="graficaAsistencia"></canvas>
+                </div>
             </div>
 
-            <div class="card">
-                <h3>Asistencias hoy</h3>
-                <p id="asistenciasHoy">8</p>
+            <div class="card-grafica">
+                <h3>Asistencias por Departamento</h3>
+                <canvas id="graficaDepartamentos"></canvas>
             </div>
 
-            <button class="btn-danger" onclick="cerrarSesionAdmin()">
+            <button class="btn-cierreSesion" onclick="cerrarSesionAdmin()">
                 Cerrar Sesión
             </button>
         </div>
 
+    </div> </div>
+
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="admin.js"></script>
 </body>
 </html>
